@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbit</title>
+  <meta name="description" content="Orbit is a friendly general-purpose AI chatbot.">
+  <meta name="theme-color" content="#17181b">
+  <link rel="icon" href="assets/robot.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try { var t = localStorage.getItem('orbit-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#composer-input">Skip to message box</a>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-dot" aria-hidden="true"></span>ORBIT</div>
+      <div class="actions">
+        <button class="btn" id="new-chat" type="button"><span aria-hidden="true">+</span> New chat</button>
+        <button class="btn icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false"><span id="theme-icon" aria-hidden="true">☀</span></button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="scene" aria-label="Orbit the robot">
+        <div class="scene-grid" aria-hidden="true"></div>
+        <img class="robot" src="assets/robot.png" alt="Orbit, a pixel-art robot waving hello" width="552" height="763">
+        <p class="bubble">Hey, I’m Orbit. What’s on your mind?</p>
+        <p class="scene-label">// ORBIT · ONLINE</p>
+      </section>
+
+      <section class="chat" aria-label="Chat with Orbit">
+        <div class="log" id="log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" aria-label="Conversation">
+          <div class="welcome" id="welcome">
+            <p class="label">// TRY ASKING</p>
+            <div class="chips" id="chips">
+              <button type="button" class="chip" data-q="Explain how black holes work in simple terms.">Explain black holes simply</button>
+              <button type="button" class="chip" data-q="Help me brainstorm 10 name ideas for a small coffee shop.">Brainstorm coffee shop names</button>
+              <button type="button" class="chip" data-q="Write a short, friendly email asking my landlord to fix a leaking tap.">Write a polite email</button>
+              <button type="button" class="chip" data-q="What are some good habits for learning a new language?">Tips for learning a language</button>
+            </div>
+          </div>
+        </div>
+
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="composer-input">Message Orbit</label>
+          <textarea id="composer-input" rows="1" maxlength="2000" placeholder="Message Orbit…" enterkeyhint="send"></textarea>
+          <button class="send" id="send" type="submit" aria-label="Send message"><span aria-hidden="true">↑</span></button>
+          <p class="hint"><span>Enter to send · Shift+Enter for a new line</span><span id="count">0/2000</span></p>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
